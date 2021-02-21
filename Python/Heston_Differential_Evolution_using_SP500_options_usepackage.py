@@ -97,7 +97,7 @@ F  = 0.8;
 CR = 0.5;
 
 # Find the Differential Evolution parameters
-tic()
+HestonDE.tic()
 #DEparam = HestonDE.HestonDE(NG,NP,CR,F,Hi,Lo,S,K1,rf,q,MktPrice,K,T,PutCall,MktIV,ObjFun,a,b,Tol,MaxIter,trap,N,uplimit,eta,alpha,rule);
 # alternative scipy
 bounds=[(kappaL,kappaU), (thetaL,thetaU), (sigmaL,sigmaU), (v0L,v0U), (rhoL,rhoU)]
@@ -106,7 +106,7 @@ def obj(Pnew):
 DEresult = differential_evolution(obj, bounds)
 DEparam= DEresult.x
 
-t2 = toc();
+t2 = HestonDE.toc();
 
 # In[]
 ## Generate prices and parameters using both sets of parameters
